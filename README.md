@@ -21,24 +21,24 @@ Or install it yourself as:
 Add env var when running test to collect and
 print statistic after test suite
 
-  PROFILE_FACTORY_GIRL=1 
+    PROFILE_FACTORY_GIRL=1 
 
 
 What's happennig is:
   
   
-  RSpec.configure do |config|
-    config.before(:suite) do
-      ActiveSupport::Notifications.subscribe("factory_girl.run_factory") do |name, start, finish, id, payload|
-        FactoryGirlProfiling::Profiler.add(name, start, finish, id, payload)
+    RSpec.configure do |config|
+      config.before(:suite) do
+        ActiveSupport::Notifications.subscribe("factory_girl.run_factory") do |name, start, finish, id, payload|
+          FactoryGirlProfiling::Profiler.add(name, start, finish, id, payload)
+        end
+      end
+
+      config.after(:suite) do
+        FactoryGirlProfiling::Profiler.print_results
+        FactoryGirlProfiling::Profiler.reset
       end
     end
-
-    config.after(:suite) do
-      FactoryGirlProfiling::Profiler.print_results
-      FactoryGirlProfiling::Profiler.reset
-    end
-  end
 
 For more info about FactoryGirl read 
 https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md#activesupport-instrumentation

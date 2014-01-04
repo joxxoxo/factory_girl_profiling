@@ -40,6 +40,9 @@ What's happennig is:
     end
   end
 
+For more info about FactoryGirl read 
+https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md#activesupport-instrumentation
+
 ## Contributing
 
 1. Fork it

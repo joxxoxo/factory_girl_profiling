@@ -41,7 +41,7 @@ What's happennig is:
     end
 
 For more info about FactoryGirl read 
-https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md#activesupport-instrumentation
+[FactoryGirl Wiki](https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md)
 
 ## Contributing
 
